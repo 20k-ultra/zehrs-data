@@ -1,11 +1,23 @@
-export interface ImplementMe {
-	myFunc(): Promise<string>;
-}
+import categories from './categories';
+import * as storage from './storage';
+import * as api from './api';
 
-const moo = 1;
-
-export class ImplementClass implements ImplementMe {
-	public async myFunc() {
-		return `I need implementing! ${moo}`;
+const fetch = async () => {
+	let productsFound = 0;
+	const data = new Map();
+	for (const category of categories) {
+		console.log(`Fetching ${category.name} products...`);
+		const products = await api.products(category.id);
+		console.log(`Found ${products.length} products...`);
+		productsFound += products.length;
+		data.set(category.name, {
+			id: category.id,
+			name: category.name,
+			products,
+		});
 	}
-}
+	console.log(`Saving ${productsFound} products `);
+	return storage.save('items.json', JSON.stringify(Object.fromEntries(data)));
+};
+
+fetch();

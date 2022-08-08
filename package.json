@@ -31,7 +31,7 @@
     "test": "npm run build && npm run lint && npm run test:node && npm run test:browser",
     "test:fast": "npm run build && npm run test:node",
     "prepack": "npm run build",
-    "fetch": "npm run build && node build/index.js"
+    "fetch": "npm run build && node -r dotenv/config build/index.js"
   },
   "devDependencies": {
     "@balena/lint": "^5.4.2",
@@ -51,5 +51,8 @@
   },
   "versionist": {
     "publishedAt": "2022-07-20T21:31:17.871Z"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1"
   }
 }
