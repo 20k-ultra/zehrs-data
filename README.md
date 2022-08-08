@@ -2,7 +2,7 @@
 
 Fetchs food data from https://api.pcexpress.ca which is a private API.
 
-This repository contains data at data/food.json but it is not guranteed to be up to date.
+This repository contains data at [products.json](products.json) but it is not guranteed to be up to date.
 
 ## Setup
 
@@ -12,12 +12,12 @@ npm ci
 
 ## Get latest data
 
-The following command with output a JSON payload to stdout. Save this to a file.
+The following command with output a JSON payload to products.json file.
 
 ```
 npm run fetch
 ```
 
-## Rate limiting
+## Rate limiting ?
 
-Not sure yet
+~~Not sure yet~~ Nope. 

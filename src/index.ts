@@ -17,7 +17,10 @@ const fetch = async () => {
 		});
 	}
 	console.log(`Saving ${productsFound} products `);
-	return storage.save('items.json', JSON.stringify(Object.fromEntries(data)));
+	return storage.save(
+		'products.json',
+		JSON.stringify(Object.fromEntries(data)),
+	);
 };
 
 fetch();
